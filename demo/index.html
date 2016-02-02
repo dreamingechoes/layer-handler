@@ -1,0 +1,210 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<title>LayerHandler</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+	<link rel="stylesheet" href="assets/css/github-markdown.css" />
+	<link rel="stylesheet" href="assets/css/main.css" />
+	<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+</head>
+
+<body data-gtm-body='{"someKeyOnBody": "hello", "otherKeyOnBody": "bye"}'>
+
+	<!-- Header -->
+	<section id="header">
+		<header>
+			<h1 id="logo"><a href="#">LayerHandler</a></h1>
+			<p>Simple JS library to handle
+				<br /> Google Tag Manager easily</p>
+		</header>
+		<nav id="nav">
+			<ul>
+				<li><a href="#about" class="active">About</a></li>
+				<li><a href="#usage">Usage</a></li>
+				<li><a href="#events">Events</a></li>
+			</ul>
+		</nav>
+		<footer>
+			<ul class="icons">
+				<li>
+					<a href="https://github.com/dreamingechoes/layer-handler" class="icon fa-github">
+						<span class="label">Github</span>
+					</a>
+				</li>
+				<li>
+					<a href="mailto:xixon.sound@gmail.com" class="icon fa-envelope">
+						<span class="label">Email</span>
+					</a>
+				</li>
+			</ul>
+		</footer>
+	</section>
+
+	<!-- Wrapper -->
+	<div id="wrapper">
+
+		<!-- Main -->
+		<div id="main">
+
+			<!-- About -->
+			<section id="about">
+				<div class="container">
+					<header class="major">
+						<h2>About</h2>
+						<p>LayerHandler is a simple JS library to handle Google Tag Manager easily.</p>
+					</header>
+					<p>
+						It initializes the <strong>GTM dataLayer</strong> object, appends to your <strong>HTML</strong> body tag the <strong>GTM</strong> script code, and binds the click event to all the <strong>HTML</strong> tags that have the
+						<strong>data-gtm</strong> data attribute, pushing automatically the content of this data attribute to the <strong>dataLayer</strong> object. And all in one and little javascript library :)
+					</p>
+					<p>
+						Feel free to share it, use it, fork it, clone it on Github... whatever you want! :)
+					</p>
+				</div>
+			</section>
+
+			<!-- Usage -->
+			<section id="usage">
+				<div class="container">
+					<h3>Usage</h3>
+
+					<p>
+						The library works with one basic special data attribute:
+						<strong>data-gtm</strong> (well, <strong>data-gtm-body</strong> for the body info also). It search through all the
+						<strong>HTML</strong> elements of your page to find this attribute, and binds the events and push the data you want.
+					</p>
+
+					<p>
+						Fill the
+						<strong>data-gtm-body</strong> attribute on the
+						<strong>body</strong> tag to initialize the
+						<strong>dataLayer</strong> like this:
+					</p>
+
+					<p>
+						<article class="markdown-body">
+							<div class="highlight highlight-source-html">
+								<pre> &lt;body data-gtm-body='{&quot;someKeyOnBody&quot;: &quot;hello&quot;, &quot;otherKeyOnBody&quot;: &quot;bye&quot;}'&gt; &lt;/body&gt; </pre>
+							</div>
+						</article>
+					</p>
+
+					<p>
+						This will initialize your <strong>dataLayer</strong> object with this info:
+						<article class="markdown-body">
+							<div class="highlight highlight-source-html">
+							<pre> {&quot;someKeyOnBody&quot;: &quot;hello&quot;, &quot;otherKeyOnBody&quot;: &quot;bye&quot;} </pre>
+						</div>
+					</article>
+					</p>
+
+					<p>
+						And in all the HTML tags you want to track, like this:
+					</p>
+
+					<p>
+						<article class="markdown-body">
+							<div class="highlight highlight-source-html">
+								<pre> &lt;a href="#" data-gtm='{&quot;someKey&quot;: &quot;hello&quot;, &quot;otherKey&quot;: &quot;bye&quot;}'&gt;Hello!&lt;/a&gt; </pre>
+							</div>
+						</article>
+					</p>
+
+					<p>
+						Then simply add the
+						<strong>js</strong> file to your page, and execute the
+						<strong>init</strong> method passing your <strong>GTM-ID</strong> like this:
+					</p>
+
+					<p>
+						<article class="markdown-body">
+							<div class="highlight highlight-source-js">
+								<pre> LayerHandler.init("YOUR_GTM_ID_HERE"); </pre>
+							</div>
+						</article>
+					</p>
+
+					<p>
+						<blockquote>
+							ALERT! It's important to use use simple quotes to wrap the <strong>data-gtm-body</strong> and <strong>data-gtm</strong> info to be able to parse the data properly.
+						</blockquote>
+					</p>
+
+				</div>
+			</section>
+
+			<!-- Events -->
+			<section id="events">
+				<div class="container">
+					<h3>Events</h3>
+					<p>
+						This is a work in progress library, so for the first version, we only handle the
+						<strong>click</strong> event on the HTML element that have the special
+						<strong>data-gtm</strong> data attribute, but I plan to add more events in the future.
+					</p>
+					<article>
+						<h3>Bind Event</h3>
+						<p>
+							If you want to bind the
+							<strong>click</strong> event on some tag to push some data into the
+							<strong>dataLayer</strong> object, you just have to give the special data attribute
+							<strong>data-gtm</strong> to this tag with the content you want to push to the dataLayer on the click event, and voila! There you have it!
+						</p>
+						<p>
+							<article class="markdown-body">
+								<div class="highlight highlight-source-html">
+									<pre> &lt;a id="example" href="#" data-gtm='{&quot;someKey&quot;: &quot;hello&quot;, &quot;otherKey&quot;: &quot;bye&quot;}'&gt;Click me!&lt;/a&gt; </pre>
+								</div>
+							</article>
+						</p>
+						<p>
+							Try: <a id="example" href="#" data-gtm='{"someKey": "hello", "otherKey": "bye"}'>Click me!</a>
+						</p>
+					</article>
+				</div>
+			</section>
+
+		</div>
+
+		<!-- Footer -->
+		<section id="footer">
+			<div class="container">
+				<div class="social-buttons">
+					<a href="https://twitter.com/share" class="twitter-share-button" data-via="dreamingechoes" data-hashtags="gtm">Tweet</a>
+					<script>
+					! function(d, s, id) {
+						var js, fjs = d.getElementsByTagName(s)[0],
+						p = /^http:/.test(d.location) ? 'http' : 'https';
+						if (!d.getElementById(id)) {
+							js = d.createElement(s);
+							js.id = id;
+							js.src = p + '://platform.twitter.com/widgets.js';
+							fjs.parentNode.insertBefore(js, fjs);
+						}
+					}(document, 'script', 'twitter-wjs');
+					</script>
+					<iframe src="http://ghbtns.com/github-btn.html?user=dreamingechoes&amp;repo=layer-handler&amp;type=watch&amp;count=true" scrolling="0" style="width:50px; height: 20px;" allowtransparency="true" frameborder="0" height="20" width="107"></iframe>
+					<iframe src="http://ghbtns.com/github-btn.html?user=dreamingechoes&amp;repo=layer-handler&amp;type=fork&amp;count=true" scrolling="0" style="width:50px; height: 20px;" allowtransparency="true" frameborder="0" height="20" width="107"></iframe>
+					<iframe src="http://ghbtns.com/github-btn.html?user=dreamingechoes&amp;type=follow&amp;count=true" scrolling="0" style="width:195px; height: 20px;" allowtransparency="true" frameborder="0" height="20" width="195"></iframe>
+				</div>
+			</div>
+		</section>
+
+	</div>
+
+	<!-- Scripts -->
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/jquery.scrollzer.min.js"></script>
+	<script src="assets/js/jquery.scrolly.min.js"></script>
+	<script src="assets/js/skel.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<script src="../src/layer-handler.js"></script>
+	<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+	<script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
