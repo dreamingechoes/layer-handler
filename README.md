@@ -1,8 +1,8 @@
-# LayerHandler (WIP)
+# LayerHandler
 
 ## About
 
-LayerHandler is a simple JS library to handle Google Tag Manager easily.
+LayerHandler is a (work in progress) simple JS library to handle Google Tag Manager easily.
 
 ## Usage
 
