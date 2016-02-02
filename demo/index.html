@@ -11,7 +11,7 @@
 	<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 </head>
 
-<body data-gtm-body='{"someKeyOnBody": "hello", "otherKeyOnBody": "bye"}'>
+<body data-gtm-page='{"someKeyOnBody": "hello", "otherKeyOnBody": "bye"}'>
 
 	<!-- Header -->
 	<section id="header">
@@ -78,13 +78,13 @@
 
 					<p>
 						The library works with one basic special data attribute:
-						<strong>data-gtm</strong> (well, <strong>data-gtm-body</strong> for the body info also). It search through all the
+						<strong>data-gtm</strong> (well, <strong>data-gtm-page</strong> for the body info also). It search through all the
 						<strong>HTML</strong> elements of your page to find this attribute, and binds the events and push the data you want.
 					</p>
 
 					<p>
 						Fill the
-						<strong>data-gtm-body</strong> attribute on the
+						<strong>data-gtm-page</strong> attribute on the
 						<strong>body</strong> tag to initialize the
 						<strong>dataLayer</strong> like this:
 					</p>
@@ -92,7 +92,7 @@
 					<p>
 						<article class="markdown-body">
 							<div class="highlight highlight-source-html">
-								<pre> &lt;body data-gtm-body='{&quot;someKeyOnBody&quot;: &quot;hello&quot;, &quot;otherKeyOnBody&quot;: &quot;bye&quot;}'&gt; &lt;/body&gt; </pre>
+								<pre> &lt;body data-gtm-page='{&quot;someKeyOnBody&quot;: &quot;hello&quot;, &quot;otherKeyOnBody&quot;: &quot;bye&quot;}'&gt; &lt;/body&gt; </pre>
 							</div>
 						</article>
 					</p>
@@ -134,7 +134,7 @@
 
 					<p>
 						<blockquote>
-							ALERT! It's important to use use simple quotes to wrap the <strong>data-gtm-body</strong> and <strong>data-gtm</strong> info to be able to parse the data properly.
+							ALERT! It's important to use use simple quotes to wrap the <strong>data-gtm-page</strong> and <strong>data-gtm</strong> info to be able to parse the data properly.
 						</blockquote>
 					</p>
 
