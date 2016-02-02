@@ -10,6 +10,11 @@ You could check how to use this library on his [documentation](https://dreaminge
 
 The theme for the documentation page was developed by [html5up](http://html5up.net).
 
+## TODO
+
+- Tests!
+- Add more events
+
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/dreamingechoes/layer-handler. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](contributor-covenant.org) code of conduct.
