@@ -15,7 +15,7 @@
   };
 
   LayerHandler.initDataLayer = function() {
-    var data = document.getElementsByTagName('body')[0].getAttribute('data-gtm-body');
+    var data = document.getElementsByTagName('body')[0].getAttribute('data-gtm-page');
     this.pushData(data);
   };
 
