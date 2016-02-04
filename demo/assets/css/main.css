@@ -89,7 +89,7 @@ body {
   .container.\31 25\25 {
     width: 100%;
     max-width: 52.5em;
-    min-width: 42em;
+    min-width: 52em;
   }
   .container.\37 5\25 {
     width: 31.5em;
@@ -101,7 +101,7 @@ body {
     width: 10.5em;
   }
   .container {
-    width: 42em;
+    width: 52em;
   }
 }
 @media screen and (max-width: 1024px) {
@@ -1686,12 +1686,10 @@ table {
   width: 100%;
 }
 table tbody tr {
-  border: solid 2px #3498db;
-  border-left: 0;
-  border-right: 0;
+  border: solid 1px #3498db;
 }
 table tbody tr:nth-child(2n + 1) {
-  background-color: #f1c40f;
+  background-color: #eee;
 }
 table td {
   padding: 0.75em 0.75em;

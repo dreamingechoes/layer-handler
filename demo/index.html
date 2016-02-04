@@ -24,7 +24,7 @@
 			<ul>
 				<li><a href="#about" class="active">About</a></li>
 				<li><a href="#usage">Usage</a></li>
-				<li><a href="#events">Events</a></li>
+				<li><a href="#events">Bind Events</a></li>
 			</ul>
 		</nav>
 		<footer>
@@ -62,11 +62,16 @@
 						<p>LayerHandler is a simple JS library to handle Google Tag Manager easily.</p>
 					</header>
 					<p>
-						It initializes the <strong>GTM dataLayer</strong> object, appends to your <strong>HTML</strong> body tag the <strong>GTM</strong> script code, and binds the click event to all the <strong>HTML</strong> tags that have the
-						<strong>data-gtm</strong> data attribute, pushing automatically the content of this data attribute to the <strong>dataLayer</strong> object. And all in one and little javascript library :)
+						It initializes the
+						<strong>GTM dataLayer</strong> object, appends to your
+						<strong>HTML</strong> body tag the
+						<strong>GTM</strong> script code, and binds the specific events to all the
+						<strong>HTML</strong> tags that have the
+						<strong>data-gtm-*</strong> data attribute, pushing automatically the content of this data attribute to the
+						<strong>dataLayer</strong> object. And all in one and little javascript library :)
 					</p>
 					<p>
-						Feel free to share it, use it, fork it, clone it on Github... whatever you want! :)
+						Feel free to share it, use it, fork it, clone it on Github... whatever you want!
 					</p>
 				</div>
 			</section>
@@ -78,7 +83,7 @@
 
 					<p>
 						The library works with one basic special data attribute:
-						<strong>data-gtm</strong> (well, <strong>data-gtm-page</strong> for the body info also). It search through all the
+						<strong>data-gtm-*</strong>. It search through all the
 						<strong>HTML</strong> elements of your page to find this attribute, and binds the events and push the data you want.
 					</p>
 
@@ -98,22 +103,24 @@
 					</p>
 
 					<p>
-						This will initialize your <strong>dataLayer</strong> object with this info:
+						This will initialize your
+						<strong>dataLayer</strong> object with this info:
 						<article class="markdown-body">
 							<div class="highlight highlight-source-html">
-							<pre> {&quot;someKeyOnBody&quot;: &quot;hello&quot;, &quot;otherKeyOnBody&quot;: &quot;bye&quot;} </pre>
-						</div>
-					</article>
+								<pre> {&quot;someKeyOnBody&quot;: &quot;hello&quot;, &quot;otherKeyOnBody&quot;: &quot;bye&quot;} </pre>
+							</div>
+						</article>
 					</p>
 
 					<p>
-						And in all the HTML tags you want to track, like this:
+						And in all the
+						<strong>HTML</strong> tags you want to track, like this:
 					</p>
 
 					<p>
 						<article class="markdown-body">
 							<div class="highlight highlight-source-html">
-								<pre> &lt;a href="#" data-gtm='{&quot;someKey&quot;: &quot;hello&quot;, &quot;otherKey&quot;: &quot;bye&quot;}'&gt;Hello!&lt;/a&gt; </pre>
+								<pre> &lt;a href="#" data-gtm-click='{&quot;someKey&quot;: &quot;hello&quot;, &quot;otherKey&quot;: &quot;bye&quot;}'&gt;Hello!&lt;/a&gt; </pre>
 							</div>
 						</article>
 					</p>
@@ -121,7 +128,8 @@
 					<p>
 						Then simply add the
 						<strong>js</strong> file to your page, and execute the
-						<strong>init</strong> method passing your <strong>GTM-ID</strong> like this:
+						<strong>init</strong> method passing your
+						<strong>GTM-ID</strong> like this:
 					</p>
 
 					<p>
@@ -134,7 +142,8 @@
 
 					<p>
 						<blockquote>
-							ALERT! It's important to use use simple quotes to wrap the <strong>data-gtm-page</strong> and <strong>data-gtm</strong> info to be able to parse the data properly.
+							ALERT! It's important to use use simple quotes to wrap the
+							<strong>data-gtm-*</strong> info to be able to parse the data properly.
 						</blockquote>
 					</p>
 
@@ -144,31 +153,270 @@
 			<!-- Events -->
 			<section id="events">
 				<div class="container">
-					<h3>Events</h3>
-					<p>
-						This is a work in progress library, so for the first version, we only handle the
-						<strong>click</strong> event on the HTML element that have the special
-						<strong>data-gtm</strong> data attribute, but I plan to add more events in the future.
-					</p>
 					<article>
 						<h3>Bind Event</h3>
 						<p>
-							If you want to bind the
-							<strong>click</strong> event on some tag to push some data into the
+							If you want to bind some event on any tag to push certain data into the
 							<strong>dataLayer</strong> object, you just have to give the special data attribute
-							<strong>data-gtm</strong> to this tag with the content you want to push to the dataLayer on the click event, and voila! There you have it!
+							<strong>data-gtm-*</strong> to this tag with the content you want to push to the
+							<strong>dataLayer</strong> on the event, and voila! There you have it!
 						</p>
 						<p>
+							Here some examples of use:
 							<article class="markdown-body">
 								<div class="highlight highlight-source-html">
-									<pre> &lt;a id="example" href="#" data-gtm='{&quot;someKey&quot;: &quot;hello&quot;, &quot;otherKey&quot;: &quot;bye&quot;}'&gt;Click me!&lt;/a&gt; </pre>
+									<pre> &lt;a id="example1" href="#" data-gtm-click='{&quot;someKey&quot;: &quot;hello&quot;, &quot;otherKey&quot;: &quot;bye&quot;}'&gt;Click me!&lt;/a&gt; </pre>
 								</div>
 							</article>
 						</p>
 						<p>
-							Try: <a id="example" href="#" data-gtm='{"someKey": "hello", "otherKey": "bye"}'>Click me!</a>
+							Try: <a id="example1" href="#" data-gtm-click='{"someKey": "hello", "otherKey": "bye"}'>Click me!</a>
+							<br>
+						</p>
+
+						<p>
+							<article class="markdown-body">
+								<div class="highlight highlight-source-html">
+									<pre> &lt;a id="example2" href="#" data-gtm-mouseover='{&quot;someKeyMouse&quot;: &quot;hello&quot;, &quot;otherKeyMouse&quot;: &quot;bye&quot;}'&gt;Click me!&lt;/a&gt; </pre>
+								</div>
+							</article>
+						</p>
+						<p>
+							Try: <a id="example2" href="#" data-gtm-mouseover='{"someKeyMouse": "hello", "otherKeyMouse": "bye"}'>Move the mouse over me!</a>
+							<br>
+						</p>
+						<p>
+							And so on...
 						</p>
 					</article>
+
+					<article>
+						<h3>Events</h3>
+						<p>
+							Here are a list of all the events that are handled right now.
+							<strong>DOM</strong> Indicates in which
+							<strong>DOM</strong> Level the property was introduced.
+						</p>
+
+						<h3>Mouse Events</h3>
+						<table>
+							<tbody>
+								<tr>
+									<th style="width:20%">Event</th>
+									<th>Description</th>
+									<th style="width:6%">DOM</th>
+								</tr>
+								<tr>
+									<td>click</td>
+									<td>The event occurs when the user clicks on an element</td>
+									<td>2</td>
+								</tr>
+								<tr>
+									<td>contextmenu</td>
+									<td>The event occurs when the user right-clicks on an element to open a context menu</td>
+									<td>3</td>
+								</tr>
+								<tr>
+									<td>dblclick</td>
+									<td>The event occurs when the user double-clicks on an element</td>
+									<td>2</td>
+								</tr>
+								<tr>
+									<td>mousedown</td>
+									<td>The event occurs when the user presses a mouse button over an element</td>
+									<td>2</td>
+								</tr>
+								<tr>
+									<td>mouseenter</td>
+									<td>The event occurs when the pointer is moved onto an element</td>
+									<td>2</td>
+								</tr>
+								<tr>
+									<td>mouseleave</td>
+									<td>The event occurs when the pointer is moved out of an element</td>
+									<td>2</td>
+								</tr>
+								<tr>
+									<td>mousemove</td>
+									<td>The event occurs when the pointer is moving while it is over an element</td>
+									<td>2</td>
+								</tr>
+								<tr>
+									<td>mouseover</td>
+									<td>The event occurs when the pointer is moved onto an element, or onto one of its children</td>
+									<td>2</td>
+								</tr>
+								<tr>
+									<td>mouseout</td>
+									<td>The event occurs when a user moves the mouse pointer out of an element, or out of one of its children</td>
+									<td>2</td>
+								</tr>
+								<tr>
+									<td>mouseup</td>
+									<td>The event occurs when a user releases a mouse button over an element</td>
+									<td>2</td>
+								</tr>
+							</tbody>
+						</table>
+
+						<h3>Keyboard Events</h3>
+						<table>
+							<tbody>
+								<tr>
+									<th style="width:20%">Event</th>
+									<th>Description</th>
+									<th style="width:6%">DOM</th>
+								</tr>
+								<tr>
+									<td>keydown</td>
+									<td>The event occurs when the user is pressing a key</td>
+									<td>2</td>
+								</tr>
+								<tr>
+									<td>keypress</td>
+									<td>The event occurs when the user presses a key</td>
+									<td>2</td>
+								</tr>
+								<tr>
+									<td>keyup</td>
+									<td>The event occurs when the user releases a key</td>
+									<td>2</td>
+								</tr>
+							</tbody>
+						</table>
+					</article>
+
+					<h3>Frame/Object Events</h3>
+					<table>
+						<tbody>
+							<tr>
+								<th style="width:20%">Event</th>
+								<th>Description</th>
+								<th style="width:6%">DOM</th>
+							</tr>
+							<tr>
+								<td>abort</td>
+								<td>The event occurs when the loading of a resource has been aborted</td>
+								<td>2</td>
+							</tr>
+							<tr>
+								<td>beforeunload</td>
+								<td>The event occurs before the document is about to be unloaded</td>
+								<td>2</td>
+							</tr>
+							<tr>
+								<td>error</td>
+								<td>The event occurs when an error occurs while loading an external file </td>
+								<td>2</td>
+							</tr>
+							<tr>
+								<td>hashchange</td>
+								<td>The event occurs when there has been changes to the anchor part of a URL</td>
+								<td>3</td>
+							</tr>
+							<tr>
+								<td>load</td>
+								<td>The event occurs when an object has loaded</td>
+								<td>2</td>
+							</tr>
+							<tr>
+								<td>pageshow</td>
+								<td>The event occurs when the user navigates to a webpage</td>
+								<td>3</td>
+							</tr>
+							<tr>
+								<td>pagehide</td>
+								<td>The event occurs when the user navigates away from a webpage</td>
+								<td>3</td>
+							</tr>
+							<tr>
+								<td>resize</td>
+								<td>The event occurs when the document view is resized</td>
+								<td>2</td>
+							</tr>
+							<tr>
+								<td>scroll</td>
+								<td>The event occurs when an element's scrollbar is being scrolled</td>
+								<td>2</td>
+							</tr>
+							<tr>
+								<td>unload</td>
+								<td>The event occurs once a page has unloaded (for &lt;body&gt;)
+								</td>
+								<td>2</td>
+							</tr>
+						</tbody>
+					</table>
+
+					<h3>Form Events</h3>
+					<table>
+						<tbody>
+							<tr>
+								<th style="width:20%">Event</th>
+								<th>Description</th>
+								<th style="width:6%">DOM</th>
+							</tr>
+							<tr>
+								<td>blur</td>
+								<td>The event occurs when an element loses focus</td>
+								<td>2</td>
+							</tr>
+							<tr>
+								<td>change</td>
+								<td>The event occurs when the content of a form element, the selection, or the checked state have changed (for &lt;input&gt;, &lt;keygen&gt;, &lt;select&gt;, and &lt;textarea&gt;)</td>
+								<td>2</td>
+							</tr>
+							<tr>
+								<td>focus</td>
+								<td>The event occurs when an element gets focus</td>
+								<td>2</td>
+							</tr>
+							<tr>
+								<td>focusin</td>
+								<td>The event occurs when an element is about to get focus</td>
+								<td>2</td>
+							</tr>
+							<tr>
+								<td>focusout</td>
+								<td>The event occurs when an element is about to lose focus</td>
+								<td>2</td>
+							</tr>
+							<tr>
+								<td>input</td>
+								<td>The event occurs when an element gets user input</td>
+								<td>3</td>
+							</tr>
+							<tr>
+								<td>invalid</td>
+								<td>The event occurs when an element is invalid</td>
+								<td>3</td>
+							</tr>
+							<tr>
+								<td>reset</td>
+								<td>The event occurs when a form is reset</td>
+								<td>2</td>
+							</tr>
+							<tr>
+								<td>search</td>
+								<td>The event occurs when the user writes something in a search field (for &lt;input="search"&gt;)
+								</td>
+								<td>3</td>
+							</tr>
+							<tr>
+								<td>select</td>
+								<td>The event occurs after the user selects some&nbsp;text (for &lt;input&gt; and &lt;textarea&gt;)</td>
+								<td>2</td>
+							</tr>
+							<tr>
+								<td>submit</td>
+								<td>The event occurs when a form is submitted</td>
+								<td>2</td>
+							</tr>
+						</tbody>
+					</table>
+
+					And more to come in the future! :)
+
 				</div>
 			</section>
 
@@ -180,16 +428,16 @@
 				<div class="social-buttons">
 					<a href="https://twitter.com/share" class="twitter-share-button" data-via="dreamingechoes" data-hashtags="gtm">Tweet</a>
 					<script>
-					! function(d, s, id) {
-						var js, fjs = d.getElementsByTagName(s)[0],
-						p = /^http:/.test(d.location) ? 'http' : 'https';
-						if (!d.getElementById(id)) {
-							js = d.createElement(s);
-							js.id = id;
-							js.src = p + '://platform.twitter.com/widgets.js';
-							fjs.parentNode.insertBefore(js, fjs);
-						}
-					}(document, 'script', 'twitter-wjs');
+						! function(d, s, id) {
+							var js, fjs = d.getElementsByTagName(s)[0],
+								p = /^http:/.test(d.location) ? 'http' : 'https';
+							if (!d.getElementById(id)) {
+								js = d.createElement(s);
+								js.id = id;
+								js.src = p + '://platform.twitter.com/widgets.js';
+								fjs.parentNode.insertBefore(js, fjs);
+							}
+						}(document, 'script', 'twitter-wjs');
 					</script>
 					<iframe src="http://ghbtns.com/github-btn.html?user=dreamingechoes&amp;repo=layer-handler&amp;type=watch&amp;count=true" scrolling="0" style="width:50px; height: 20px;" allowtransparency="true" frameborder="0" height="20" width="107"></iframe>
 					<iframe src="http://ghbtns.com/github-btn.html?user=dreamingechoes&amp;repo=layer-handler&amp;type=fork&amp;count=true" scrolling="0" style="width:50px; height: 20px;" allowtransparency="true" frameborder="0" height="20" width="107"></iframe>

@@ -20,12 +20,25 @@
   };
 
   LayerHandler.bindEvents = function() {
-    document.body.addEventListener('click', function(event) {
+    var events = ['click', 'contextmenu', 'dblclick', 'mousedown',
+                  'mouseenter', 'mouseleave', 'mousemove', 'mouseover',
+                  'mouseout', 'mouseup', 'keydown', 'keypress', 'keyup',
+                  'abort', 'beforeunload', 'error', 'hashchange', 'load',
+                  'pageshow', 'pagehide', 'resize', 'scroll', 'unload',
+                  'blur', 'change', 'focus', 'focusin', 'focusout',
+                  'input', 'invalid', 'reset', 'search', 'select', 'submit'];
+    for(var i = 0; i < events.length; i++) {
+      this.bind(events[i]);
+    }
+  };
+
+  LayerHandler.bind = function(eventToBind) {
+    document.body.addEventListener(eventToBind, function(event) {
       var element = event.target,
           data;
 
       do {
-        data = element.getAttribute('data-gtm');
+        data = element.getAttribute('data-gtm-' + eventToBind);
         element = element.parentElement;
       } while (element && element.parentElement && data === null);
 
@@ -33,12 +46,11 @@
         this.pushData(data);
       }
     }.bind(this));
-  };
+  }
 
   LayerHandler.appendGTM = function() {
     var gtm_no_script = document.createElement('noscript');
-    gtm_no_script.innerHTML = "<!-- Google Tag Manager -->" +
-                              "<iframe src='//www.googletagmanager.com/ns.html?id='" + this.gtm_id + "'" +
+    gtm_no_script.innerHTML = "<iframe src='//www.googletagmanager.com/ns.html?id='" + this.gtm_id + "'" +
                               "height='0' width='0' style='display:none;visibility:hidden'></iframe></noscript>";
 
     var gtm_script = document.createElement('script');
@@ -46,8 +58,8 @@
                            "new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0]," +
                            "j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=" +
                            "'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);" +
-                           "})(window,document,'script','dataLayer','" + this.gtm_id + "');" +
-                           "<!-- End Google Tag Manager -->";
+                           "})(window,document,'script','dataLayer','" + this.gtm_id + "');";
+                           
     var appendElement = document.body.lastChild;
     appendElement.parentNode.insertBefore(gtm_no_script, appendElement);
     appendElement.parentNode.insertBefore(gtm_script, appendElement);
