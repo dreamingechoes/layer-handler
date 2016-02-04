@@ -116,12 +116,16 @@
 
   });
 
-  $('#example').on('click', function(e) {
+  $('#example1').on('click', function(e) {
+    e.preventDefault();
+    alert("Hey! Now open the browser inspector and see what's inside the dataLayer object :)");
+  });
+  $('#example2').on('mouseover', function(e) {
     e.preventDefault();
     alert("Hey! Now open the browser inspector and see what's inside the dataLayer object :)");
   });
 
   // Init the LayerHandler
-  LayerHandler.init('GTM-XXXX'); 
+  LayerHandler.init('GTM-XXXX');
 
 })(jQuery);
