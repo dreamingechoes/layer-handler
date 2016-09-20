@@ -45,7 +45,7 @@ Here some examples of use:
 ```
 
 ```
-<a id="example2" href="#" data-gtm-mouseover='{"someKeyMouse": "hello", "otherKeyMouse": "bye"}'>Go hover me!</a>
+<a id="example2" href="#" data-gtm-mouseover='{"someKeyMouse": "hello", "otherKeyMouse": "bye"}'>Go over me!</a>
 ```
 
 And so on...
