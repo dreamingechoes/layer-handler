@@ -6,7 +6,7 @@ It initializes the **GTM dataLayer** object, appends to your **HTML** body tag t
 
 ## Usage
 
-The library works with one basic special data attribute: **data-gtm-***. It search through all the **HTML** elements of your page to find this attribute, and binds the events and push the data you want.
+The library works with one basic special data attribute: **data-gtm-**. It search through all the **HTML** elements of your page to find this attribute, and binds the events and push the data you want.
 
 Fill the **data-gtm-page** attribute on the **body** tag to initialize the **dataLayer** like this:
 
