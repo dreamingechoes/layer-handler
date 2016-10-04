@@ -25,7 +25,8 @@ module.exports = function(grunt) {
           beautify: false
         },
         files: {
-          'dist/layer-handler.min.js': 'src/layer-handler.js'
+          'dist/layer-handler.min.js': 'src/layer-handler.js',
+          'vendor/assets/javascripts/layer-handler/layer-handler.min.js': 'src/layer-handler.js'
         }
       }
     },
