@@ -46,7 +46,7 @@
         this.pushData(data);
       }
     }.bind(this));
-  }
+  };
 
   LayerHandler.appendGTM = function() {
     var gtm_no_script = document.createElement('noscript'),
@@ -73,10 +73,10 @@
 
   LayerHandler.pushData = function(data) {
     if(data !== null) {
-      var data = JSON.parse(data),
+      var parsed_data = JSON.parse(data),
           temp = {};
-      for(var key in data) {
-        temp[key] = data[key];
+      for(var key in parsed_data) {
+        temp[key] = parsed_data[key];
       }
       dataLayer.push(temp);
     }
