@@ -50,6 +50,50 @@ Here some examples of use:
 
 And so on...
 
+## Rails Gem
+
+If you want to use this JS library with a Rails application, you have available the corresponding gem in order to do it more conveniently. Just follow this simple steps:
+
+Add this line to your application's Gemfile:
+
+```ruby
+gem 'layer-handler'
+```
+
+And then execute:
+
+```
+$ bundle
+```
+
+Or install it yourself:
+
+```
+$ gem install layer-handler
+```
+
+After install the gem, add this into your `application.js` file:
+
+```ruby
+  //= require layer_handler
+```
+
+Then create the initializer of the gem by executing:
+
+```
+rails g layer:handler:install
+```
+
+And edit the `gtm_id` config option on the new  `config/initializer/layer_handler.rb` file.
+
+And there you have it. Just put this line at the end of your Rails layout and you're ready to go:
+
+```
+<%= init_layer_handler %>
+```
+
+Now you can use the JS library as usual.
+
 ## TODO
 
 - Tests!
