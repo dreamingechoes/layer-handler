@@ -4,7 +4,17 @@ LayerHandler is a (work in progress) simple JS library to handle Google Tag Mana
 
 It initializes the **GTM dataLayer** object, appends to your **HTML** body tag the **GTM** script code, and binds the specific events to all the **HTML** tags that have the **data-gtm-*** data attribute, pushing automatically the content of this data attribute to the **dataLayer** object. And all in one and little javascript library :)
 
+* [Table of contents](#table-of-contents)
+  * [Usage](#usage)
+    * [Bind Event](#bind-event)
+  * [Rails Gem](#rails-gem)
+  * [TODO](#todo)
+  * [Contributing](#contributing)
+  * [License](#license)
+  
 ## Usage
+
+Copy the `dist/layer-handler.min.js` file into your JS assets folder.
 
 The library works with one basic special data attribute: **data-gtm-**. It search through all the **HTML** elements of your page to find this attribute, and binds the events and push the data you want.
 
