@@ -63,6 +63,8 @@ And so on...
 
 ## Rails Gem
 
+[![Gem Version](https://badge.fury.io/rb/layer-handler.svg)](https://badge.fury.io/rb/layer-handler)
+
 If you want to use this **JS library** with a **Rails** application, you have available the corresponding gem in order to do it more conveniently. Just follow this simple steps:
 
 Add this line to your application's `Gemfile`:
