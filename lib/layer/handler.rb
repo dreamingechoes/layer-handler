@@ -23,7 +23,7 @@ module Layer
       attr_accessor :gtm_id
 
       def initialize
-       @gtm_id = nil
+        @gtm_id = nil
       end
     end
 
