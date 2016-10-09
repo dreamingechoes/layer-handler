@@ -1,6 +1,6 @@
 module Layer
   module Handler
-    
+
     class Engine < ::Rails::Engine
       initializer "layer_handler.action_view" do |app|
         ActiveSupport.on_load :action_view do
@@ -23,7 +23,7 @@ module Layer
       attr_accessor :gtm_id
 
       def initialize
-       @gtm_id = 'GTM_XYZ'
+       @gtm_id = nil
       end
     end
 
