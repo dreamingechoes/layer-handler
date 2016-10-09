@@ -52,9 +52,9 @@ And so on...
 
 ## Rails Gem
 
-If you want to use this JS library with a Rails application, you have available the corresponding gem in order to do it more conveniently. Just follow this simple steps:
+If you want to use this **JS library** with a **Rails** application, you have available the corresponding gem in order to do it more conveniently. Just follow this simple steps:
 
-Add this line to your application's Gemfile:
+Add this line to your application's `Gemfile`:
 
 ```ruby
 gem 'layer-handler'
@@ -92,7 +92,7 @@ And there you have it. Just put this line at the end of your Rails layout and yo
 <%= init_layer_handler %>
 ```
 
-Now you can use the JS library as usual.
+Now you can use the **JS library** as usual.
 
 ## TODO
 
