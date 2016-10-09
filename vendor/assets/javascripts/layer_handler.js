@@ -11,5 +11,3 @@
 // about supported directives.
 //
 //= require ./layer-handler/layer-handler.min
-
-$(document).ready(function(){ });
