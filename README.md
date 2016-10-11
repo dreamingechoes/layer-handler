@@ -2,7 +2,7 @@
 
 LayerHandler is a (work in progress) simple JS library to handle Google Tag Manager easily.
 
-It initializes the **GTM dataLayer** object, appends to your **HTML** body tag the **GTM** script code, and binds the specific events to all the **HTML** tags that have the **data-gtm-*** data attribute, pushing automatically the content of this data attribute to the **dataLayer** object. And all in one and little javascript library :)
+It initializes the **GTM dataLayer** object, appends to your **HTML** body tag the **GTM** script code, and binds the specific events to all the **HTML** tags that have the **data-gtm-*** data attribute, pushing automatically the content of this data attribute to the **dataLayer** object. And all in one and little javascript library of less than 2Kb minified :)
 
 ## Table of contents
 
